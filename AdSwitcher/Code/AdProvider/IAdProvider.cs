@@ -5,8 +5,8 @@ namespace AdSwitcher.Code.AdProvider
 {
     public interface IAdProvider
     {
-        Action New;
-        Action Error;
+        event Action New;
+        event Action Error;
 
         UIElement CreateControl();
         void PurgeControl();
@@ -15,5 +15,8 @@ namespace AdSwitcher.Code.AdProvider
         void Refresh();
 
         string GetName();
+
+        void RaiseNew();
+        void RaiseError();
     }
 }

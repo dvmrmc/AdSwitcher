@@ -8,6 +8,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using Newtonsoft.Json;
 
 namespace AdSwitcher.Code
 {
@@ -33,6 +34,16 @@ namespace AdSwitcher.Code
         }
 
         #endregion
+
+        public void Initialize()
+        {
+        }
+
+        public void LoadSettings(string description)
+        {
+            AdSwitcherSettings settings = JsonConvert.DeserializeObject<AdSwitcherSettings>(description);
+            int i = 0;
+        }
 
     }
 }

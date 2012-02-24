@@ -14,6 +14,9 @@ namespace AdSwitcher.Code.AdProvider
 {
     public class AdProvider : IAdProvider
     {
+        public event Action New;
+        public event Action Error;
+
         protected string _name = "";
         protected UIElement _control;
 
@@ -42,6 +45,21 @@ namespace AdSwitcher.Code.AdProvider
         public virtual string GetName()
         {
             return  _name;
+        }
+
+
+        public void RaiseNew()
+        {
+            Debug.WriteLine("AdProvider: " + GetName() + " -> NEW AD ACQUIRED");
+            if (New != null)
+                New();
+        }
+
+        public void RaiseError()
+        {
+            Debug.WriteLine("AdProvider: " + GetName() + " -> ERROR ACQUIRING AD");
+            if (Error != null)
+                Error();
         }
     }
 }
