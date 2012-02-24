@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdSwitcher", "AdSwitcher\AdSwitcher.csproj", "{6BD7810D-FF5C-411B-B5AA-3EF595B57065}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdSwitcherTest", "AdSwitcherTest\AdSwitcherTest.csproj", "{23CED5D4-8E22-4FC4-8AE0-8DFAA63ADC0D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6BD7810D-FF5C-411B-B5AA-3EF595B57065}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BD7810D-FF5C-411B-B5AA-3EF595B57065}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BD7810D-FF5C-411B-B5AA-3EF595B57065}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BD7810D-FF5C-411B-B5AA-3EF595B57065}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23CED5D4-8E22-4FC4-8AE0-8DFAA63ADC0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23CED5D4-8E22-4FC4-8AE0-8DFAA63ADC0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23CED5D4-8E22-4FC4-8AE0-8DFAA63ADC0D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{23CED5D4-8E22-4FC4-8AE0-8DFAA63ADC0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23CED5D4-8E22-4FC4-8AE0-8DFAA63ADC0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23CED5D4-8E22-4FC4-8AE0-8DFAA63ADC0D}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
