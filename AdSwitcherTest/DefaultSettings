@@ -1,4 +1,18 @@
 ﻿{
 	"Test" : "test",
-	"RefreshTime" : 30
+	"RefreshTime" : 30,
+	"Providers" : [
+		{
+			"Priority" : 0,
+			"Name" : "pubcenter"
+		},
+		{
+			"Priority" : 0,
+			"Name" : "admob"
+		},
+		{
+			"Priority" : 0,
+			"Name" : "smaato"
+		}
+	]
 }

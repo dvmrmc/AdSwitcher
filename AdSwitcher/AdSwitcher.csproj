@@ -41,6 +41,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Advertising.Mobile.UI, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Xna.Framework" />
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.4.0.8\lib\sl4-windowsphone71\Newtonsoft.Json.dll</HintPath>
@@ -55,9 +56,13 @@
   <ItemGroup>
     <Compile Include="AdSwitcher.cs" />
     <Compile Include="Code\AdManager.cs" />
+    <Compile Include="Code\AdProvider\AdProviderFactory.cs" />
+    <Compile Include="Code\AdProvider\AdProviderSettings.cs" />
     <Compile Include="Code\AdProvider\AdProvider.cs" />
     <Compile Include="Code\AdProvider\IAdProvider.cs" />
+    <Compile Include="Code\AdProvider\PubcenterSystem.cs" />
     <Compile Include="Code\AdSwitcherSettings.cs" />
+    <Compile Include="Code\Constants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

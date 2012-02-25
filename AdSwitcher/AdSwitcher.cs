@@ -47,6 +47,7 @@ namespace AdSwitcher
                     string jsonString = reader.ReadToEnd();
 
                     AdManager.Instance.LoadSettings(jsonString);
+                    AdManager.Instance.Start();
                 }
             }
         }

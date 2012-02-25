@@ -16,9 +16,13 @@ namespace AdSwitcher.Code.AdProvider
     {
         public event Action New;
         public event Action Error;
+        public float Priority = 0;
 
         protected string _name = "";
         protected UIElement _control;
+
+        protected int Width = 480;
+        protected int Height = 80;
 
         public virtual UIElement CreateControl()
         {

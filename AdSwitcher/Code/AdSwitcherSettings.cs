@@ -8,6 +8,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using System.Collections.Generic;
+using AdSwitcher.Code.AdProvider;
 
 namespace AdSwitcher.Code
 {
@@ -16,5 +18,6 @@ namespace AdSwitcher.Code
         public string Test = "";
         public int RefreshTime = 0;
 
+        public List<AdProviderSettings> Providers;
     }
 }
