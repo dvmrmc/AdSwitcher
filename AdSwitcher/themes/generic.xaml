@@ -10,13 +10,13 @@
                 <ControlTemplate TargetType="local:AdSwitcher">
                     <Grid x:Name="LayoutRoot"
                           Background="Black">
-                        <Grid x:Name="RotatingAdContainer"
-                              Background="Red">
-                            <TextBlock>ROTATING AD CONTAINER</TextBlock>
-                        </Grid>
                         <Grid x:Name="DefaultBannerContainer"
                               Background="Yellow">
                             <TextBlock>DEFAULT BANNER CONTAINER</TextBlock>
+                        </Grid>
+                        <Grid x:Name="RotatingAdContainer"
+                              Background="Red">
+                            <TextBlock>ROTATING AD CONTAINER</TextBlock>
                         </Grid>
                     </Grid>
                 </ControlTemplate>

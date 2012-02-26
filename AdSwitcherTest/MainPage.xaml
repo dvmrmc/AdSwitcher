@@ -29,7 +29,10 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <adSwitcher:AdSwitcher DefaultSettings="DefaultSettings" />
+            <adSwitcher:AdSwitcher DefaultSettings="DefaultSettings" 
+                                   Height="80"
+                                   Width="480"
+                                   VerticalAlignment="Bottom"/>
         </Grid>
     </Grid>
  

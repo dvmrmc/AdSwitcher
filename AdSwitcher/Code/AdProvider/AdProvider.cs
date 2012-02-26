@@ -51,6 +51,10 @@ namespace AdSwitcher.Code.AdProvider
             return  _name;
         }
 
+        public virtual float GetPriority()
+        {
+            return Priority;
+        }
 
         public void RaiseNew()
         {

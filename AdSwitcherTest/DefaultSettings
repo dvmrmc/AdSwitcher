@@ -4,7 +4,9 @@
 	"Providers" : [
 		{
 			"Priority" : 0,
-			"Name" : "pubcenter"
+			"Name" : "pubcenter",
+			"PubcenterApplicationID" : "1aaf0389-c2fb-4364-8b6a-fc4b6ba49d65",
+			"PubcenterAdUnitID" : "10021736"
 		},
 		{
 			"Priority" : 0,
@@ -12,7 +14,8 @@
 		},
 		{
 			"Priority" : 0,
-			"Name" : "smaato"
+			"Name" : "smaato",
+			"SmaatoSpaceID" : "65746370"
 		}
 	]
 }

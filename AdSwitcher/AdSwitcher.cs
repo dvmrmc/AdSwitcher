@@ -34,7 +34,10 @@ namespace AdSwitcher
         {
             Debug.WriteLine("AdSwitcher loaded");
 
-            AdManager.Instance.Initialize();
+            Panel rotatingAdContainer = (Panel) GetTemplateChild("RotatingAdContainer");
+            Panel defaultAdContainer = (Panel)GetTemplateChild("DefaultBannerContainer");
+
+            AdManager.Instance.Initialize(rotatingAdContainer, defaultAdContainer);
 
             if (!String.IsNullOrEmpty(DefaultSettings))
             {

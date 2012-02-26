@@ -15,6 +15,7 @@ namespace AdSwitcher.Code.AdProvider
         void Refresh();
 
         string GetName();
+        float GetPriority();
 
         void RaiseNew();
         void RaiseError();
