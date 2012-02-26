@@ -1,0 +1,27 @@
+Advertising Switcher System (ASS) for Windows Phone 7
+==================
+
+Switcher is a custom control to switch between advert providers with functionality to set up a default banner if
+no ads are given.
+
+Document
+------------------
+
+Coming soon!
+
+  
+Contact me
+------------------
+   
+Feel free to contact me:
+
+ * Twitter: @cerberillo
+ * Email: david@martinmacias.com
+   
+Info
+------------------
+
+	* Author: David Martin Macias
+  * Email: david@martinmacias.com
+
+Please notify if using this library for any purpose :)
