@@ -21,7 +21,7 @@ Feel free to contact me:
 Info
 ------------------
 
-	* Author: David Martin Macias
+  * Author: David Martin Macias
   * Email: david@martinmacias.com
 
 Please notify if using this library for any purpose :)
