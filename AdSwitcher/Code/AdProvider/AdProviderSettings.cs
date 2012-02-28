@@ -39,7 +39,7 @@ namespace AdSwitcher.Code.AdProvider
         // ADDUPLEX
         //=============================
 
-        public string AdduplexAdID = "8703";
+        public string AdduplexAppID = "8703";
 
         //=============================
         // MOBFOX

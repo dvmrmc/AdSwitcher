@@ -134,9 +134,38 @@ namespace AdSwitcher.Code
             }
             else
             {
-                //TODO: Do a draw for selecting a provider
-                Deployment.Current.Dispatcher.BeginInvoke(() => SelectProvider(0));
+                //Select a drawed provider
+                Deployment.Current.Dispatcher.BeginInvoke(() => SelectProvider(ProvidersDrawing()));
             }
+        }
+
+        /// <summary>
+        /// Drawing providers method that makes a draw tih all availableProviders
+        /// </summary>
+        /// <returns>Index of winner provider in a draw</returns>
+        private int ProvidersDrawing()
+        {
+            Debug.WriteLine("ProvidersDrawing -> Starting Draw");
+
+            int result = 0;
+
+            double accumulator = 0;
+            Random random = new Random();
+            double selectionMark = random.NextDouble();
+
+            foreach (IAdProvider provider in _availableProviders)
+            {
+                accumulator += provider.GetPriority();
+
+                if (accumulator > selectionMark)
+                {
+                    Debug.WriteLine("ProvidersDrawing -> Draw won by " + provider.GetName() + " with priority: " + provider.GetPriority());
+                    result = _availableProviders.IndexOf(provider);
+                    break;
+                }
+            }
+
+            return result;
         }
 
         private void RefreshNext()
@@ -154,6 +183,8 @@ namespace AdSwitcher.Code
 
         private void RefreshProvider(IAdProvider provider)
         {
+            Debug.WriteLine("RefreshProvider -> " + provider.GetName() + " with priority: " + provider.GetPriority());
+
             if (_newProvider != null)
             {
                 //TODO: Unanchor events
@@ -253,12 +284,12 @@ namespace AdSwitcher.Code
 
         private int CompareProviders(IAdProvider provider1, IAdProvider provider2)
         {
-            return provider1.GetPriority().CompareTo(provider2.GetPriority());
+            return provider2.GetPriority().CompareTo(provider1.GetPriority());
         }
 
         private void SelectProvider(int providerPosition)
         {
-            if (_availableProviders.Count-1 > providerPosition)
+            if (_availableProviders.Count-1 <= providerPosition || providerPosition < 0)
             {
                 StartTimer();
                 return;

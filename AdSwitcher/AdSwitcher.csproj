@@ -71,6 +71,8 @@
   <ItemGroup>
     <Compile Include="AdSwitcher.cs" />
     <Compile Include="Code\AdManager.cs" />
+    <Compile Include="Code\AdProvider\AdduplexSystemm.cs" />
+    <Compile Include="Code\AdProvider\AdmobSystem.cs" />
     <Compile Include="Code\AdProvider\AdProviderFactory.cs" />
     <Compile Include="Code\AdProvider\AdProviderSettings.cs" />
     <Compile Include="Code\AdProvider\AdProvider.cs" />

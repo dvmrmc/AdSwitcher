@@ -59,12 +59,19 @@ namespace AdSwitcher.Code.AdProvider
                 pubcenterSystem.Priority = priority;
 
                 result = pubcenterSystem;
-                
             }
             else if (String.Equals(adType, Constants.PROVIDER_ADMOB))
             {
+                if (String.IsNullOrEmpty(description.AdmobAdUnitID))
+                    return result;
+
                 Debug.WriteLine("AdProviderFactory -> CreateProvider -> ADMOB");
-                //TODO: Create ADMOB provider
+
+                AdmobSystem admobSystem = new AdmobSystem();
+                admobSystem.AdUnitID = description.AdmobAdUnitID;
+                admobSystem.Priority = priority;
+
+                result = admobSystem;
             }
             else if (String.Equals(adType, Constants.PROVIDER_MILLENIALMEDIA))
             {
@@ -83,8 +90,16 @@ namespace AdSwitcher.Code.AdProvider
             }
             else if (String.Equals(adType, Constants.PROVIDER_ADDUPLEX))
             {
+                if (String.IsNullOrEmpty(description.AdduplexAppID))
+                    return result;
+
                 Debug.WriteLine("AdProviderFactory -> CreateProvider -> ADDUPLEX");
-                //TODO: Create ADDUPLEX provider
+
+                AdduplexSystem adduplexSystem = new AdduplexSystem();
+                adduplexSystem.AppID = description.AdduplexAppID;
+                adduplexSystem.Priority = priority;
+
+                result = adduplexSystem;                
             }
             else if (String.Equals(adType, Constants.PROVIDER_INNERACTIVE))
             {

@@ -10,7 +10,13 @@
 		},
 		{
 			"Priority" : 0,
-			"Name" : "admob"
+			"Name" : "admob",
+			"AdmobAdUnitID" : "a14e67895bdffff"
+		},
+		{
+			"Priority" : 100,
+			"Name" : "adduplex",
+			"AdduplexAppID" : "8703"
 		},
 		{
 			"Priority" : 0,

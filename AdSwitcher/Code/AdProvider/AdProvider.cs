@@ -43,7 +43,7 @@ namespace AdSwitcher.Code.AdProvider
 
         public virtual void Refresh()
         {
-            Debug.WriteLine("AdProvider: " + GetName() + " -> Start");
+            Debug.WriteLine("AdProvider: " + GetName() + " -> Refresh");
         }
 
         public virtual string GetName()
@@ -61,6 +61,8 @@ namespace AdSwitcher.Code.AdProvider
             Debug.WriteLine("AdProvider: " + GetName() + " -> NEW AD ACQUIRED");
             if (New != null)
                 New();
+            else
+                Debug.WriteLine("AdProvider: " + GetName() + " -> No one handling new event");
         }
 
         public void RaiseError()
@@ -68,6 +70,8 @@ namespace AdSwitcher.Code.AdProvider
             Debug.WriteLine("AdProvider: " + GetName() + " -> ERROR ACQUIRING AD");
             if (Error != null)
                 Error();
+            else
+                Debug.WriteLine("AdProvider: " + GetName() + " -> No one handling error event");
         }
     }
 }

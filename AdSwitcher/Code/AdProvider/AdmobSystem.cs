@@ -8,38 +8,35 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
-using Microsoft.Advertising.Mobile.UI;
-using Microsoft.Advertising;
+using Google.AdMob.Ads.WindowsPhone7.WPF;
+using Google.AdMob.Ads.WindowsPhone7;
 using System.Diagnostics;
 
 namespace AdSwitcher.Code.AdProvider
 {
-    public class PubcenterSystem : AdProvider
+    public class AdmobSystem : AdProvider
     {
         public string AdUnitID = "";
-        public string ApplicationID = "";
 
-        public PubcenterSystem()
+        public AdmobSystem()
         {
-            _name = Constants.PROVIDER_PUBCENTER;
+            _name = Constants.PROVIDER_ADMOB;
         }
 
         public override UIElement CreateControl()
         {
             base.CreateControl();
 
-            _control = new AdControl()
+            _control = new BannerAd()
             {
-                Name = "pubcenterSystem",
+                Name = "admobSystem",
                 Width = this.Width,
                 Height = this.Height,
-                AdUnitId = this.AdUnitID,
-                ApplicationId = this.ApplicationID,
-                IsAutoRefreshEnabled = false
+                AdUnitID = this.AdUnitID                
             };
 
-            (_control as AdControl).AdRefreshed += PubcenterSystem_AdRefreshed;
-            (_control as AdControl).ErrorOccurred += PubcenterSystem_ErrorOcurred;
+            (_control as BannerAd).AdReceived += AdmobSystem_AdReceived;
+            (_control as BannerAd).AdFailed += AdmobSystem_AdFailed;
 
             return _control;
         }
@@ -54,9 +51,9 @@ namespace AdSwitcher.Code.AdProvider
                 return;
             }
 
-            (_control as AdControl).AdRefreshed -= PubcenterSystem_AdRefreshed;
-            (_control as AdControl).ErrorOccurred -= PubcenterSystem_ErrorOcurred;
-            
+            (_control as BannerAd).AdReceived -= AdmobSystem_AdReceived;
+            (_control as BannerAd).AdFailed -= AdmobSystem_AdFailed;
+
             _control = null;
         }
 
@@ -65,29 +62,26 @@ namespace AdSwitcher.Code.AdProvider
             base.Refresh();
 
             if(_control != null)
-                (_control as AdControl).Refresh();
+                (_control as BannerAd).ShowNewAd();
         }
 
-        public override void Start()
-        {
-            base.Start();
+        #region Events
 
-            if(_control != null)
-                (_control as AdControl).Refresh();
-        }
-
-        private void PubcenterSystem_AdRefreshed(object sender, EventArgs e)
+        void AdmobSystem_AdReceived(object sender, RoutedEventArgs e)
         {
             Debug.WriteLine("AdProvider: " + _name + " -> Event New");
             RaiseNew();
         }
 
-        private void PubcenterSystem_ErrorOcurred(object sender, AdErrorEventArgs e)
+        void AdmobSystem_AdFailed(object sender, AdException exception)
         {
             Debug.WriteLine("AdProvider: " + _name + " -> Event Error");
-            Debug.WriteLine("Pubcenter Error: " + e.Error);
+            Debug.WriteLine("AdProvider error: " + exception);
 
             RaiseError();
         }
+
+        #endregion
+
     }
 }
