@@ -180,7 +180,7 @@ namespace AdSwitcher.Code
             //When failed, select next provider in list
             SelectProvider(0);
         }
-
+            
         private void RefreshProvider(IAdProvider provider)
         {
             Debug.WriteLine("RefreshProvider -> " + provider.GetName() + " with priority: " + provider.GetPriority());

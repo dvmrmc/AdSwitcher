@@ -78,6 +78,7 @@
     <Compile Include="Code\AdProvider\AdProvider.cs" />
     <Compile Include="Code\AdProvider\IAdProvider.cs" />
     <Compile Include="Code\AdProvider\PubcenterSystem.cs" />
+    <Compile Include="Code\AdProvider\SmaatoSystem.cs" />
     <Compile Include="Code\AdSwitcherSettings.cs" />
     <Compile Include="Code\Constants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

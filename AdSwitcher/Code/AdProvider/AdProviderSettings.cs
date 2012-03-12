@@ -27,7 +27,8 @@ namespace AdSwitcher.Code.AdProvider
         // SMAATO
         //=============================
 
-        public string SmaatoSpaceID = "";
+        public int SmaatoSpaceID = 65746370;
+        public int SmaatoPublisherID = 923848840;
 
         //=============================
         // MILLENIALMEDIA

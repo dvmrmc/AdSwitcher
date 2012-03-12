@@ -81,7 +81,14 @@ namespace AdSwitcher.Code.AdProvider
             else if (String.Equals(adType, Constants.PROVIDER_SMAATO))
             {
                 Debug.WriteLine("AdProviderFactory -> CreateProvider -> SMAATO");
-                //TODO: Create SMAATO provider
+
+                SmaatoSystem smaatoSystem = new SmaatoSystem();
+                smaatoSystem.AdSpaceID = description.SmaatoSpaceID;
+                smaatoSystem.PublisherID = description.SmaatoPublisherID;
+                smaatoSystem.Priority = priority;
+
+                result = smaatoSystem;
+
             }
             else if (String.Equals(adType, Constants.PROVIDER_MOBFOX))
             {
