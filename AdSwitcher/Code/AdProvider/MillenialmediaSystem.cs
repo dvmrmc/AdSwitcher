@@ -8,37 +8,36 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
-using SOMAWP7;
+using mmiWP7SDK;
 using System.Diagnostics;
 
 namespace AdSwitcher.Code.AdProvider
 {
-    public class SmaatoSystem : AdProvider
+    public class MillenialmediaSystem : AdProvider
     {
-        public int AdSpaceID = 0;
-        public int PublisherID = 0;
+        public string AppID = "";
 
-        public SmaatoSystem()
+        public MillenialmediaSystem()
         {
-            _name = Constants.PROVIDER_SMAATO;
+            _name = Constants.PROVIDER_MILLENIALMEDIA;
         }
 
         public override UIElement CreateControl()
         {
             base.CreateControl();
 
-            _control = new SomaAdViewer()
+            _control = new MMAdView()
             {
-                Name = "smaatoSystem",
+                Name = "millenialmediaSystem",
                 Width = this.Width,
                 Height = this.Height,
-                Adspace = this.AdSpaceID,
-                Pub = this.PublisherID,
-                PopupAd = false
+                Apid = this.AppID,
+                RefreshTimer = -1,
+                AdType = MMAdView.MMAdType.MMBannerAdBottom
             };
 
-            (_control as SomaAdViewer).AdError += SmaatoSystem_AdError;
-            (_control as SomaAdViewer).NewAdAvailable += SmaatoSystem_NewAdAvailable;
+            (_control as MMAdView).MMAdSuccess += MillenialmediaSystem_MMAdSuccess;
+            (_control as MMAdView).MMAdFailure += MillenialmediaSystem_MMAdFailure;
 
             return _control;
         }
@@ -53,8 +52,8 @@ namespace AdSwitcher.Code.AdProvider
                 return;
             }
 
-            (_control as SomaAdViewer).AdError -= SmaatoSystem_AdError;
-            (_control as SomaAdViewer).NewAdAvailable -= SmaatoSystem_NewAdAvailable;
+            (_control as MMAdView).MMAdSuccess -= MillenialmediaSystem_MMAdSuccess;
+            (_control as MMAdView).MMAdFailure -= MillenialmediaSystem_MMAdFailure;
 
             _control = null;
         }
@@ -64,7 +63,7 @@ namespace AdSwitcher.Code.AdProvider
             base.Start();
 
             if (_control != null)
-                (_control as SomaAdViewer).StartAds();
+                (_control as MMAdView).CallForAd();
         }
 
         public override void Refresh()
@@ -72,26 +71,20 @@ namespace AdSwitcher.Code.AdProvider
             base.Refresh();
 
             if (_control != null)
-                (_control as SomaAdViewer).StartAds();
+                (_control as MMAdView).CallForAd();
         }
 
         #region Events
 
-        void SmaatoSystem_NewAdAvailable(object sender, EventArgs e)
+        private void MillenialmediaSystem_MMAdSuccess(object sender, EventArgs e)
         {
-            (_control as SomaAdViewer).StopAds();
-
             Debug.WriteLine("AdProvider: " + _name + " -> Event New");
             RaiseNew();
         }
 
-        void SmaatoSystem_AdError(object sender, string ErrorCode, string ErrorDescription)
+        private void MillenialmediaSystem_MMAdFailure(object sender, EventArgs e)
         {
-            (_control as SomaAdViewer).StopAds();
-
             Debug.WriteLine("AdProvider: " + _name + " -> Event Error");
-            Debug.WriteLine("Smaato Error: " + ErrorCode + " - Description: " + ErrorDescription);
-
             RaiseError();
         }
 

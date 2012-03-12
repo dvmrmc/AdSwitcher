@@ -71,12 +71,13 @@
   <ItemGroup>
     <Compile Include="AdSwitcher.cs" />
     <Compile Include="Code\AdManager.cs" />
-    <Compile Include="Code\AdProvider\AdduplexSystemm.cs" />
+    <Compile Include="Code\AdProvider\AdduplexSystem.cs" />
     <Compile Include="Code\AdProvider\AdmobSystem.cs" />
     <Compile Include="Code\AdProvider\AdProviderFactory.cs" />
     <Compile Include="Code\AdProvider\AdProviderSettings.cs" />
     <Compile Include="Code\AdProvider\AdProvider.cs" />
     <Compile Include="Code\AdProvider\IAdProvider.cs" />
+    <Compile Include="Code\AdProvider\MillenialmediaSystem.cs" />
     <Compile Include="Code\AdProvider\PubcenterSystem.cs" />
     <Compile Include="Code\AdProvider\SmaatoSystem.cs" />
     <Compile Include="Code\AdSwitcherSettings.cs" />

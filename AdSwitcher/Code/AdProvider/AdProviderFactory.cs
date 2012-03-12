@@ -53,12 +53,12 @@ namespace AdSwitcher.Code.AdProvider
 
                 Debug.WriteLine("AdProviderFactory -> CreateProvider -> PUBCENTER");
 
-                PubcenterSystem pubcenterSystem = new PubcenterSystem();
-                pubcenterSystem.AdUnitID = description.PubcenterAdUnitID;
-                pubcenterSystem.ApplicationID = description.PubcenterApplicationID;
-                pubcenterSystem.Priority = priority;
-
-                result = pubcenterSystem;
+                result = new PubcenterSystem()
+                {
+                    AdUnitID = description.PubcenterAdUnitID,
+                    ApplicationID = description.PubcenterApplicationID,
+                    Priority = priority
+                };
             }
             else if (String.Equals(adType, Constants.PROVIDER_ADMOB))
             {
@@ -67,28 +67,38 @@ namespace AdSwitcher.Code.AdProvider
 
                 Debug.WriteLine("AdProviderFactory -> CreateProvider -> ADMOB");
 
-                AdmobSystem admobSystem = new AdmobSystem();
-                admobSystem.AdUnitID = description.AdmobAdUnitID;
-                admobSystem.Priority = priority;
-
-                result = admobSystem;
+                result = new AdmobSystem()
+                {
+                    AdUnitID = description.AdmobAdUnitID,
+                    Priority = priority
+                };
             }
             else if (String.Equals(adType, Constants.PROVIDER_MILLENIALMEDIA))
             {
+                if (String.IsNullOrEmpty(description.MillenialmediaAppID))
+                    return result;
+
                 Debug.WriteLine("AdProviderFactory -> CreateProvider -> MILLENIALMEDIA");
-                //TODO: Create MILLENIALMEDIA provider
+
+                result = new MillenialmediaSystem()
+                {
+                    AppID = description.MillenialmediaAppID,
+                    Priority = priority
+                };
             }
             else if (String.Equals(adType, Constants.PROVIDER_SMAATO))
             {
+                if (description.SmaatoPublisherID <= 0 || description.SmaatoSpaceID <= 0)
+                    return result;
+
                 Debug.WriteLine("AdProviderFactory -> CreateProvider -> SMAATO");
 
-                SmaatoSystem smaatoSystem = new SmaatoSystem();
-                smaatoSystem.AdSpaceID = description.SmaatoSpaceID;
-                smaatoSystem.PublisherID = description.SmaatoPublisherID;
-                smaatoSystem.Priority = priority;
-
-                result = smaatoSystem;
-
+                result = new SmaatoSystem()
+                {
+                    AdSpaceID = description.SmaatoSpaceID,
+                    PublisherID = description.SmaatoPublisherID,
+                    Priority = priority
+                };
             }
             else if (String.Equals(adType, Constants.PROVIDER_MOBFOX))
             {
@@ -102,11 +112,11 @@ namespace AdSwitcher.Code.AdProvider
 
                 Debug.WriteLine("AdProviderFactory -> CreateProvider -> ADDUPLEX");
 
-                AdduplexSystem adduplexSystem = new AdduplexSystem();
-                adduplexSystem.AppID = description.AdduplexAppID;
-                adduplexSystem.Priority = priority;
-
-                result = adduplexSystem;                
+                result = new AdduplexSystem()
+                {
+                    AppID = description.AdduplexAppID,
+                    Priority = priority
+                };
             }
             else if (String.Equals(adType, Constants.PROVIDER_INNERACTIVE))
             {
